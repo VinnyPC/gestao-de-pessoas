@@ -1,4 +1,4 @@
-<form [formGroup]="form" class="form-container">
+<form  [formGroup]="form" class="form-container">
     <mat-form-field>
       <mat-label>Nome</mat-label>
       <input formControlName="nome" matInput #message maxlength="100" />
@@ -11,12 +11,9 @@
 
     <mat-form-field>
       <mat-label>Data de nascimento</mat-label>
-      <input matInput formControlName="nascimento" [matDatepicker]="picker" />
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <input matInput formControlName="nascimento" [matDatepicker]="nascimentoPicker" />
+      <mat-datepicker-toggle matIconSuffix [for]="nascimentoPicker"></mat-datepicker-toggle>
+      <mat-datepicker #nascimentoPicker></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Endereço</mat-label>
@@ -25,12 +22,9 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Admissão</mat-label>
-      <input matInput formControlName="admissao" [matDatepicker]="picker" />
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <input matInput formControlName="admissao" [matDatepicker]="admissaoPicker" />
+      <mat-datepicker-toggle matIconSuffix [for]="admissaoPicker"></mat-datepicker-toggle>
+      <mat-datepicker #admissaoPicker></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Função</mat-label>
@@ -45,4 +39,11 @@
       <mat-label>Qualificação</mat-label>
       <input formControlName="qualificacao" matInput #message maxlength="100" />
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Salario inicial</mat-label>
+      <input formControlName="salarioInicial" matInput #message maxlength="100" />
+    </mat-form-field>
+
+      <button type="submit" (click)="salvar()">Salvar</button>
+    
 </form>

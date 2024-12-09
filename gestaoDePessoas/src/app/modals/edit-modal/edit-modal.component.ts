@@ -27,7 +27,7 @@ export class EditModalComponent {
       endereco: [data?.endereco || ''],
       admissao: [data?.admissao || ''],
       funcao: [data?.funcao || ''],
-      salarioInicial: [data?.salario_inicial || ''],
+      salarioInicial: [data?.salario_inicial || 0],
       situacao: [data?.situacao || ''],
       qualificacao: [data?.qualificacao || '']
     });

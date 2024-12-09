@@ -6,6 +6,7 @@ import { EditModalComponent } from '../../modals/edit-modal/edit-modal.component
 import { DeleteModalComponent } from '../../modals/delete-modal/delete-modal.component';
 import { MatIcon } from '@angular/material/icon';
 import { ApiService } from '../../services/api.service';
+import { Funcionario } from '../../interfaces/funcionario/funcionario.module';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   tabelaColunas: string[] = ['Editar', 'Nome', 'CPF', 'Nascimento', 'Endereco', 'Admissao', 'Funcao', 'SalarioInicial', 'Situacao', 'Qualificacao', 'Excluir']
 
-  pessoas:any;
+  pessoas:Funcionario[] = [];
 
   constructor(private apiService:ApiService) { }
 
@@ -26,11 +27,16 @@ export class HomeComponent implements OnInit {
     this.getAllPessoas();
   }
 
-  getAllPessoas(){
-    this.apiService.get('funcionarios').subscribe((data:any) => {
-      this.pessoas = data;
-      console.log(this.pessoas);
-    });
+  getAllPessoas(): void {
+    this.apiService.get<Funcionario[]>('funcionarios').subscribe(
+      (data) => {
+        this.pessoas = data;
+        console.log(this.pessoas);
+      },
+      (error) => {
+        console.error('Erro ao buscar os dados', error);
+      }
+    );
   }
 
   openCadastroDialog() {
@@ -44,7 +50,7 @@ export class HomeComponent implements OnInit {
     });
 
   }
-  openEditDialog(pessoa:any){
+  openEditDialog(pessoa:Funcionario){
     const dialogRef = this.dialog.open(EditModalComponent, {
       minWidth: '50vw',
       minHeight: '10vw',
@@ -54,7 +60,7 @@ export class HomeComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  openDeleteDialog(pessoa:any){
+  openDeleteDialog(pessoa:Funcionario){
     const dialogRef = this.dialog.open(DeleteModalComponent, {
       minWidth: '30vw',
       minHeight: '10vw',

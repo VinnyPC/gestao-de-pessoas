@@ -1,0 +1,48 @@
+<form [formGroup]="form" class="form-container">
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input formControlName="nome" matInput #message maxlength="100" />
+      <mat-hint align="end">{{ message.value.length }}/100</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>CPF</mat-label>
+      <input formControlName="cpf" matInput #message maxlength="11" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Data de nascimento</mat-label>
+      <input matInput formControlName="nascimento" [matDatepicker]="picker" />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Endereço</mat-label>
+      <input formControlName="endereco" matInput #message maxlength="100" />
+      <mat-hint align="end">{{ message.value.length }}/100</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Admissão</mat-label>
+      <input matInput formControlName="admissao" [matDatepicker]="picker" />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Função</mat-label>
+      <input formControlName="funcao" matInput #message maxlength="100" />
+      <mat-hint align="end">{{ message.value.length }}/100</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Situação</mat-label>
+      <input formControlName="situacao" matInput #message maxlength="100" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Qualificação</mat-label>
+      <input formControlName="qualificacao" matInput #message maxlength="100" />
+    </mat-form-field>
+</form>

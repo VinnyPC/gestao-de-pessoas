@@ -4,6 +4,7 @@
     overflow-y: auto;
     border: 1px solid darkgray;
     border-radius: 15px;
+    margin-top: 2em;
 }
 
 .main-container {
@@ -12,5 +13,7 @@
     align-items: center;
 }
 main {
-    margin-top: 8em;
+    margin: auto;
+    max-width: 100em;
+    margin-top: 10em;
 }

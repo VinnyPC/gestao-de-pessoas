@@ -56,15 +56,16 @@ export class HomeComponent implements OnInit {
       minHeight: '10vw',
       data: pessoa
     });
+    console.log('dados que vao para o modal:', pessoa)
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
-  openDeleteDialog(pessoa:Funcionario){
+  openDeleteDialog(id:number){
     const dialogRef = this.dialog.open(DeleteModalComponent, {
       minWidth: '30vw',
       minHeight: '10vw',
-      data: pessoa
+      data: id
     });
   }
 
